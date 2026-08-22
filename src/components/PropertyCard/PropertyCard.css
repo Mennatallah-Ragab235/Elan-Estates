@@ -1,0 +1,149 @@
+.elan-card {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+.elan-card .media {
+  position: relative;
+  overflow: hidden;
+  background: var(--ivory-deep);
+}
+.elan-card .media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.6s var(--ease), filter 0.6s var(--ease);
+}
+.elan-card:hover .media img {
+  transform: scale(1.04);
+}
+.elan-card .media .tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding: 5px 9px;
+  background: rgba(245, 241, 234, 0.92);
+  color: var(--charcoal);
+  z-index: 2;
+}
+.elan-card .media .index {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ivory);
+  z-index: 2;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+}
+.elan-card .meta {
+  padding: 1.5rem 0 0;
+}
+.elan-card .meta .loc {
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.elan-card .meta h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.4vw, 1.95rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 0.5rem 0 0.9rem;
+  color: var(--charcoal);
+  letter-spacing: -0.01em;
+}
+.elan-card .meta .specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.2rem;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--charcoal-soft);
+}
+.elan-card .meta .specs span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.elan-card .meta .price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 1.1rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+}
+.elan-card .meta .price {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.elan-card .meta .price .cur {
+  font-size: 12px;
+  color: var(--stone);
+  margin-right: 0.3em;
+}
+.elan-card .meta .view {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  transition: gap 0.4s var(--ease);
+}
+.elan-card:hover .meta .view {
+  gap: 0.7em;
+}
+
+/* Card actions (favorite + compare) */
+.card-actions {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 3;
+  display: flex;
+  gap: 0.5rem;
+}
+.card-actions .act {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(245, 241, 234, 0.92);
+  border: none;
+  color: var(--charcoal);
+  cursor: pointer;
+  transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.card-actions .act:hover {
+  background: var(--charcoal);
+  color: var(--ivory);
+  transform: translateY(-2px);
+}
+.card-actions .act.active {
+  background: var(--charcoal);
+  color: var(--ivory);
+}
+.card-actions .act.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@keyframes heartPop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+.card-actions .act.pop svg {
+  animation: heartPop 0.45s var(--ease);
+}

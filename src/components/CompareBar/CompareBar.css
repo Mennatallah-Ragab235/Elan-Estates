@@ -1,0 +1,108 @@
+.compare-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 990;
+  background: var(--charcoal);
+  color: var(--ivory);
+  transform: translateY(100%);
+  transition: transform 0.6s var(--ease);
+}
+.compare-bar.show {
+  transform: translateY(0);
+}
+.compare-bar .inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.1rem clamp(1.25rem, 5vw, 4.5rem);
+}
+.compare-bar .label {
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--stone-light);
+  white-space: nowrap;
+}
+.compare-bar .slots {
+  display: flex;
+  gap: 0.75rem;
+  flex: 1;
+  overflow: hidden;
+}
+.compare-bar .slot {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.85rem 0.45rem 0.45rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  max-width: 280px;
+}
+.compare-bar .slot img {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+}
+.compare-bar .slot .name {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.compare-bar .slot .rm {
+  background: none;
+  border: none;
+  color: var(--stone-light);
+  cursor: pointer;
+  padding: 2px;
+  margin-left: auto;
+  transition: color 0.3s var(--ease);
+}
+.compare-bar .slot .rm:hover {
+  color: var(--ivory);
+}
+.compare-bar .slot.empty {
+  color: var(--stone);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  justify-content: center;
+  flex: 1;
+}
+.compare-bar .btn-elan-light {
+  white-space: nowrap;
+}
+.compare-bar .clear {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  color: var(--stone-light);
+  cursor: pointer;
+  padding: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: color 0.3s var(--ease);
+}
+.compare-bar .clear:hover {
+  color: var(--ivory);
+}
+
+@media (max-width: 767.98px) {
+  .compare-bar .inner {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0.9rem 1.25rem;
+  }
+  .compare-bar .label {
+    flex: 1;
+  }
+  .compare-bar .slots {
+    order: 3;
+    flex-basis: 100%;
+  }
+}
